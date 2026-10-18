@@ -1,16 +1,18 @@
-<p align="left"><strong>UDGAM LABS</strong> · A small model for Hinglish commands</p>
+![Hinglish Commands · Udgam Labs](./assets/banner.png)
+
+**UDGAM LABS** · Command parser, LoRA adapter · Qwen3-0.6B base
 
 ![Hinglish Commands: turn a request into a labelled intent and details, then let your app decide what happens.](docs/assets/hinglish-commands.svg)
 
 # Hinglish Commands
 
-An English and Romanized Hinglish command parser built by **Udgam Labs**, a frontier technology lab in India. It turns short requests into an intent and labelled details that a developer can use inside an app.
+An English and Romanized Hinglish command parser built by **Udgam Labs**. It turns short requests into an intent and labelled details that a developer can use inside an app.
 
 For example, **“bed time ka alarm kab hai?”** becomes an alarm lookup with **“bed time”** as the alarm name. Your app handles the lookup, permissions and response. The model does not set alarms, send messages or take actions.
 
-**Public experimental release:** explore the [visual walkthrough](https://udgamlabs.github.io/hinglish-commands-0.6b/), find the code and documentation on [GitHub](https://github.com/UdgamLabs/hinglish-commands-0.6b), and download the adapter from [Hugging Face](https://huggingface.co/UdgamLabs/hinglish-commands-0.6b).
+**Public experimental release:** explore the [visual walkthrough](https://udgamlabs.github.io/hinglish-commands-0.6b/), find the code and documentation on [GitHub](https://github.com/udgamlabs/hinglish-commands-0.6b), and download the adapter from [Hugging Face](https://huggingface.co/udgamlabs/hinglish-commands-0.6b).
 
-[What it does](#what-it-does) · [Recorded examples](#see-the-difference) · [Benchmarks](#what-improved) · [Get started](#get-started) · [Limits](#know-the-limits) · [Licences](#licences-and-credit)
+[What it does](#what-it-does) · [Recorded examples](#see-the-difference) · [Benchmarks](#what-improved) · [Get started](#get-started) · [Limits](#where-it-falls-short) · [Licences](#licences-and-credit)
 
 ## What it does
 
@@ -23,7 +25,7 @@ This is a task-specific LoRA adapter for [Qwen3-0.6B](https://huggingface.co/Qwe
 - **For people exploring the model:** open the [visual walkthrough](https://udgamlabs.github.io/hinglish-commands-0.6b/) for recorded examples and a plain-language explanation.
   GitHub displays HTML as source. To view it, download this repository and open `docs/index.html`, or run `python -m http.server 8876 --bind 127.0.0.1 --directory docs` from the checkout and visit `http://127.0.0.1:8876/`.
 - **For developers:** use the [Python quickstart](docs/QUICKSTART.md), [integration guide](docs/INTEGRATION.md), or the local browser demo.
-- **For researchers:** start with the [benchmark report](docs/BENCHMARKS.md) and [model card](https://huggingface.co/UdgamLabs/hinglish-commands-0.6b).
+- **For researchers:** start with the [benchmark report](docs/BENCHMARKS.md) and [model card](https://huggingface.co/udgamlabs/hinglish-commands-0.6b).
 
 ## See the difference
 
@@ -84,7 +86,7 @@ source .venv/bin/activate
 python -m pip install -e '.[inference]'
 ```
 
-Download the reviewed **adapter package** from the [Hugging Face release](https://huggingface.co/UdgamLabs/hinglish-commands-0.6b). Keep the whole package, including its configuration, tokenizer, schema and retrieval data.
+Download the reviewed **adapter package** from the [Hugging Face release](https://huggingface.co/udgamlabs/hinglish-commands-0.6b). Keep the whole package, including its configuration, tokenizer, schema and retrieval data.
 
 ```python
 from udgam_hinglish import CommandParser
@@ -108,7 +110,7 @@ udgam-hinglish demo --model-dir /path/to/adapter-package
 
 The local demo runs real inference on your computer. The [static walkthrough](https://udgamlabs.github.io/hinglish-commands-0.6b/) only displays recorded examples.
 
-## Know the limits
+## Where it falls short
 
 - **Language:** English and Romanized Hinglish were evaluated. Hindi written in Devanagari, other Indian languages and long conversations were not established by this test.
 - **Task:** eight benchmark command domains. It is not a general assistant, translator, speech recognizer or source of current information.
@@ -121,17 +123,21 @@ The local demo runs real inference on your computer. The [static walkthrough](ht
 
 The work builds on **Qwen3-0.6B**, **Google’s Hinglish-TOP** and the underlying **TOPv2** work. Keep their original notices and attribution.
 
-Release terms are **CC BY-SA 4.0** for the adapter contribution and prepared/retrieval data, with Qwen and Google Apache notices preserved; **Apache 2.0** for Udgam-written code. The complete package is **not Apache-only**. See the [licences and attribution](docs/LICENSES.md) and [model card](https://huggingface.co/UdgamLabs/hinglish-commands-0.6b).
+Release terms are **CC BY-SA 4.0** for the adapter contribution and prepared/retrieval data, with Qwen and Google Apache notices preserved; **Apache 2.0** for Udgam-written code. The complete package is **not Apache-only**. See the [licences and attribution](docs/LICENSES.md) and [model card](https://huggingface.co/udgamlabs/hinglish-commands-0.6b).
 
 ## Explore the work
 
 | Start here | What you will find |
 |---|---|
-| [Model card](https://huggingface.co/UdgamLabs/hinglish-commands-0.6b) | Intended use, model identity, training and limitations |
+| [Model card](https://huggingface.co/udgamlabs/hinglish-commands-0.6b) | Intended use, model identity, training and limitations |
 | [Benchmarks](docs/BENCHMARKS.md) | Before/after results and evaluation method |
 | [Quickstart](docs/QUICKSTART.md) | Installation, model loading and local demo |
 | [Integration guide](docs/INTEGRATION.md) | The Python interface and handling outputs |
 | [Visual walkthrough](https://udgamlabs.github.io/hinglish-commands-0.6b/) | Recorded examples in plain language and JSON |
 | [Udgam Labs](https://www.udgamlabs.com/) | The lab behind the experiment |
 
-Built by [Udgam Labs](https://github.com/UdgamLabs). We welcome reproducible bug reports and contributions that make this narrow task more useful. Please remove personal information from examples before sharing them.
+Built by [Udgam Labs](https://github.com/udgamlabs). We welcome reproducible bug reports and contributions that make this narrow task more useful. Please remove personal information from examples before sharing them.
+
+---
+
+**About Udgam Labs.** Udgam Labs is an independent AI research lab. We work from first principles: before we build, we understand why things work, whether we are training a model, fine-tuning one or applying AI to a new problem. Udgam (उद्गम) is Sanskrit for origin. [udgamlabs.com](https://udgamlabs.com)
